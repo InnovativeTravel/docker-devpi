@@ -3,6 +3,11 @@ set -e
 set -x
 export DEVPI_SERVERDIR=/mnt
 export DEVPI_CLIENTDIR=/tmp/devpi-client
+
+if [[ "$S3_PATH" != "" ]]; then
+  yas3fs s3://$S3_PATH /mnt
+fi
+
 [[ -f $DEVPI_SERVERDIR/.serverversion ]] || initialize=yes
 
 kill_devpi() {
