@@ -1,6 +1,6 @@
 FROM python:3
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update -q && apt-get install -y python-pip fuse \
+RUN apt-get update -q && apt-get install -y python-pip fuse mercurial \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 ADD requirements.txt /
 RUN pip install -r requirements.txt
